@@ -7,7 +7,8 @@ export default {
     extend: {
       colors:{
         btnBgColor:"#dbdcea",
-        submitBgColor: "#283fea"
+        submitBgColor: "#283fea",
+        textColor: "#D9D9D9",
 
       },
       fontFamily:{
