@@ -1,6 +1,5 @@
 import { Input , } from "@material-tailwind/react";
 import { MenuIcon, Search } from "lucide-react";
-import SideBar from "./sideBar/sideBar";
 import { IconButton } from "@mui/material";
 const TopPart = () => {
   return (
@@ -29,7 +28,6 @@ const TopPart = () => {
           </button>
         </div>
       </div>
-      <SideBar />
     </div>
    )
 }

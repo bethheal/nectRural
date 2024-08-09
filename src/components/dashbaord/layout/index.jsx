@@ -5,16 +5,15 @@ import TopPart from "../topPart";
 const DashboardLayout = () => {
   return (
     <div>
-      <TopPart/>
-    
-    <div className="flex ">
-      {/* <SideBar /> */}
-    <div >
+      <TopPart />
 
-        <Outlet />
+      <div className="flex">
+        <SideBar />  
+        <div className="flex-grow p-4"> 
+          <Outlet />
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
   );
 };
 

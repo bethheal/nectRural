@@ -6,10 +6,10 @@ import SignupOption from "./pages/auth/signupOption";
 import SignupPage from "./pages/auth/signupPage";
 import NgoFormPage from "./pages/auth/ngoFormPage";
 import InstitutionFormPage from "./pages/auth/institutionFormPage";
-import Home from "./pages/dashboard/home";
 import Notification from "./pages/dashboard/notification";
 import Settings from "./pages/dashboard/settings";
 import DashboardLayout from "./components/dashbaord/layout";
+import Home from "./pages/dashboard/home/home";
 
 const App = () => {
   const router = createBrowserRouter([
