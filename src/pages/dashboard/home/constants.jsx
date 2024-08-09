@@ -1,5 +1,7 @@
 import { Avatar } from "@mui/material";
 import { signUpImage } from "../../../assets/images";
+import { FavoriteBorderRounded, ModeCommentRounded, ShareRounded  } from "@mui/icons-material";
+
 
 export const x = {
   HOMECARDS: [
@@ -9,7 +11,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
     {
       profileImg: <Avatar />,
@@ -17,7 +30,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
     {
       profileImg: <Avatar />,
@@ -25,7 +49,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
     {
       profileImg: <Avatar />,
@@ -33,7 +68,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
     {
       profileImg: <Avatar />,
@@ -41,7 +87,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
     {
       profileImg: <Avatar />,
@@ -49,7 +106,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
     {
       profileImg: <Avatar />,
@@ -57,7 +125,18 @@ export const x = {
       location: "Nkutem, Peduase ",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
-  postImg: <img src={signUpImage} alt="Post Image" className="h-full w-full object-cover" />,  
+      postImg: (
+        <img
+          src={signUpImage}
+          alt="Post Image"
+          className="h-full w-full object-cover"
+        />
+      ),
+      likeIcon: <FavoriteBorderRounded/>,
+      commentIcon:<ModeCommentRounded/>,
+      shareIcon: <ShareRounded/>
+
+
     },
   ],
 };
