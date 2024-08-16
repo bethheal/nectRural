@@ -1,6 +1,6 @@
 import { Avatar } from "@mui/material";
 import { signUpImage } from "../../../assets/images";
-import { FavoriteBorderRounded, ModeCommentRounded, ShareRounded  } from "@mui/icons-material";
+import { FavoriteBorderRounded, ModeCommentRounded, ShareRounded,   } from "@mui/icons-material";
 
 
 export const x = {

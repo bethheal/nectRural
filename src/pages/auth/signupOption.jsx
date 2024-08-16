@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUpImage } from "../../assets/images";
 
 const SignupOption = () => {
   const navigate = useNavigate();
+  const [userChoice, setUserChoice] = useState("");
+
+  const handleChoice = (choice) => {
+    setUserChoice(choice);
+    localStorage.setItem("userChoice", choice); // Store choice in localStorage
+    if (choice === "Institution") {
+      navigate("/institution-form");
+    } else if (choice === "NGO") {
+      navigate("/ngo-form");
+    }
+  };
+
   return (
     <div className="flex  h-screen">
       <div className="flex flex-row justify-center font-marcellus items-center  h-full rounded-lg w-11/12">
@@ -17,13 +29,13 @@ const SignupOption = () => {
           </div>
           <div className="grid grid-cols-2 gap-3 text-xl">
             <span
-              onClick={() => navigate("/institution-form")}
+              onClick={() => handleChoice("Institution")}
               className="flex justify-center items-center h-20 w-52 border-none rounded-2xl shadow-md bg-btnBgColor hover:bg-submitBgColor hover:text-white cursor-pointer"
             >
               Institution
             </span>
             <span
-              onClick={() => navigate("/ngo-form")}
+              onClick={() => handleChoice("NGO")}
               className="flex justify-center items-center h-20 w-52 border-none rounded-2xl shadow-md bg-btnBgColor hover:bg-submitBgColor hover:text-white cursor-pointer"
             >
               NGO

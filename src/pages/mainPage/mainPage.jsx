@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { x } from "../home/constants";
-import LikeComment from "./like/likecomment";
+import React, { useState } from 'react'
+import LikeComment from '../dashboard/home/like/likecomment';
+import { x } from "../../pages/dashboard/home/constants";
 
-const Home = () => {
+const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleModalOpen = () => setModalOpen(true);
@@ -39,6 +39,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Home;
+export default MainPage

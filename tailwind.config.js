@@ -9,6 +9,7 @@ export default {
         btnBgColor:"#dbdcea",
         submitBgColor: "#283fea",
         textColor: "#D9D9D9",
+        mainPageColor :"#065CDC",
 
       },
       fontFamily:{

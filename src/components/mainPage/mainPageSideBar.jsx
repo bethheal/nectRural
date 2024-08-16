@@ -1,9 +1,8 @@
 import { useState } from "react";
+import { k } from "../../components/dashbaord/constants";
 import { NavLink } from "react-router-dom";
-import { k } from "../constants";
-import "../../../App.css";
 
-const SideBar = () => {
+const MainPageSideBar = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -14,8 +13,8 @@ const SideBar = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex flex-col gap-14 mt-10 sidebar-content">
-        {k.NAVLINKS.filter(link => link.showInSidebar).map(({ pathLink, text, icon }, index) => (
+      <div className="flex flex-col gap-4">
+        {k.NAVLINKS.filter(link => link.pathLink !== "/dashboard").map(({ pathLink, text, icon }, index) => (
           <NavLink
             style={({ isActive }) => {
               return isActive ? { color: "#065CDC" } : {};
@@ -41,4 +40,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default MainPageSideBar;

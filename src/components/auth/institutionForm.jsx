@@ -1,8 +1,13 @@
 import React from 'react'
 import AuthButtons from '../buttons'
+import { useNavigate } from 'react-router-dom';
 
 
 const InstitutionForm = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate("/mainPage/profile");  };
   return (
     <form>
     <div className="grid grid-cols-2 font-roboto gap-10">
@@ -62,12 +67,12 @@ const InstitutionForm = () => {
           />
       </div>
     </div>
-    <div className=" flex justify-center items-center">
-    <AuthButtons
-    text="NEXT"
-    />
-      
-    </div>
+    <button
+  type="button" 
+  className="w-full flex items-center justify-center"
+  onClick={handleSubmit}
+>
+GET STARTED</button>
   </form> 
    )
 }
