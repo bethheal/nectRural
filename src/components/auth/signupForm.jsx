@@ -12,7 +12,7 @@ import {
 } from "../../services/auth";
 import { debounce } from "lodash";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 
 const SignupForm = () => {
   const {
@@ -34,7 +34,7 @@ const SignupForm = () => {
   const [emailAvailable, setEmailAvailable] = useState(false);
   const [emailNotAvailable, setEmailNotAvailable] = useState(false);
   const navigate = useNavigate();
-  
+
   const checkUsername = async (userName) => {
     setIsUsernameLoading(true);
     try {
@@ -137,116 +137,137 @@ const SignupForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-6 relative">
-          <Input
-            placeholder="Username"
-            type="text"
-            id="username"
-            className="w-[20rem] h-14 focus:outline-none border-none rounded-xl shadow-md bg-btnBgColor p-5"
-            {...register("userName", {
-              required: "Username is required",
-              minLength: {
-                value: 8,
-                message: "Username must be at least 8 characters",
-              },
-            })}
-          />
-          <div className="absolute bottom-2 left-4 flex items-center space-x-2">
-            {isUsernameLoading && <Loader />}
-            {usernameAvailable && !isUsernameLoading && (
-              <span className="text-green-500 text-xs">Username Available!</span>
-            )}
-            {usernameNotAvailable && !isUsernameLoading && (
-              <span className="text-red-500 text-xs">Username Not Available!</span>
-            )}
+        <div className="w-[50rem] md:mt-0 sm:max-w-md xl:p-0">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"></p>
+
+            <div className="relative">
+              <label className="block mb-2 text-medium font-medium text-gray-900">
+                Your username
+              </label>
+              <div className="relative">
+                <input
+                  placeholder="LizaCaro"
+                  type="text"
+                  id="username"
+                  className="focus:outline-none border-none bg-textColor text-gray-900 text-medium rounded-lg block w-full p-5 pr-24"
+                  {...register("userName", {
+                    required: "Username is required",
+                    minLength: {
+                      value: 8,
+                      message: "Username must be at least 8 characters",
+                    },
+                  })}
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 space-x-2">
+                  {isUsernameLoading && <Loader />}
+                  {usernameAvailable && !isUsernameLoading && (
+                    <span className="text-green-500 text-xs">Username Available!</span>
+                  )}
+                  {usernameNotAvailable && !isUsernameLoading && (
+                    <span className="text-red-500 text-xs">Username Not Available!</span>
+                  )}
+                </div>
+              </div>
+              {errors.userName && (
+                <p className="text-red-500 mt-2">{errors.userName.message}</p>
+              )}
+            </div>
+
+            <div className="mb-6 relative">
+              <label className="block mb-2 text-sm font-medium text-gray-900">
+                Email
+              </label>
+              <div className="relative">
+                <input
+                  placeholder="Email"
+                  type="email"
+                  id="email"
+                  className="focus:outline-none border-none bg-textColor text-gray-900 text-medium rounded-lg block w-full p-5 pr-24"
+                  {...register("email", { required: "Email is required" })}
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 space-x-2">
+                  {isEmailLoading && <Loader />}
+                  {emailAvailable && !isEmailLoading && (
+                    <span className="text-green-500 text-xs">Email Available!</span>
+                  )}
+                  {emailNotAvailable && !isEmailLoading && (
+                    <span className="text-red-500 text-xs">Email Not Available</span>
+                  )}
+                </div>
+              </div>
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div className="mb-6 relative">
+              <label className="block mb-2 text-sm font-medium text-gray-900">
+                Password
+              </label>
+              <div className="relative">
+                <input
+                  placeholder="••••••••"
+                  type={passwordVisible ? "text" : "password"}
+                  id="password"
+                  className="focus:outline-none border-none bg-textColor text-gray-900 text-medium rounded-lg block w-full p-5 pr-12"
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 8,
+                      message: "Password length must be at least 8 characters",
+                    },
+                  })}
+                />
+                <button
+                  type="button"
+                  onClick={() => setPasswordVisible(!passwordVisible)}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3"
+                >
+                  {passwordVisible ? <Eye /> : <EyeOff />}
+                </button>
+              </div>
+              {errors.password && (
+                <p className="text-red-500 mt-2">{errors.password.message}</p>
+              )}
+            </div>
+
+            <div className="mb-6 relative">
+              <label className="block mb-2 text-sm font-medium text-gray-900">
+                Confirm Password
+              </label>
+              <div className="relative">
+                <input
+                  placeholder="••••••••"
+                  type={confirmPassVisible ? "text" : "password"}
+                  id="confirmPassword"
+                  className="focus:outline-none border-none bg-textColor text-gray-900 text-medium rounded-lg block w-full p-5 pr-12"
+                  {...register("confirmPassword", {
+                    required: "Confirm Password is required",
+                    validate: (value) =>
+                      value === passwordWatch || "Passwords do not match!",
+                  })}
+                />
+                <button
+                  type="button"
+                  onClick={() => setConfirmPassVisible(!confirmPassVisible)}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3"
+                >
+                  {confirmPassVisible ? <Eye /> : <EyeOff />}
+                </button>
+              </div>
+              {errors.confirmPassword && (
+                <p className="text-red-500 mt-2">{errors.confirmPassword.message}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="btn flex items-center justify-center w-full"
+            >
+              {isSubmitting ? <Loader /> : "CREATE AN ACCOUNT"}
+            </button>
           </div>
-          {errors.userName && (
-            <p className="text-red-500 mt-2">{errors.userName.message}</p>
-          )}
-        </div>
-
-        <div className="mb-6 relative">
-          <Input
-            placeholder="Email"
-            type="email"
-            id="email"
-            className="w-[20rem] h-14 focus:outline-none border-none rounded-xl shadow-md bg-btnBgColor p-5"
-            {...register("email", { required: "Email is required" })}
-          />
-          <div className="absolute bottom-1 left-4 flex items-center space-x-2">
-            {isEmailLoading && <Loader />}
-            {emailAvailable && !isEmailLoading && (
-              <span className="text-green-500 text-xs">Email Available!</span>
-            )}
-            {emailNotAvailable && !isEmailLoading && (
-              <span className="text-red-500 text-xs">Email Not Available</span>
-            )}
-          </div>
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
-        </div>
-
-        <div className="mb-6 relative">
-          <Input
-            placeholder="Password"
-            type={passwordVisible ? "text" : "password"}
-            id="password"
-            className="w-[20rem] h-14 focus:outline-none border-none rounded-xl shadow-md bg-btnBgColor p-5"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 8,
-                message: "Password length must be at least 8 characters",
-              },
-            })}
-            icon={
-              <button
-                type="button"
-                onClick={() => setPasswordVisible(!passwordVisible)}
-                className="absolute left-64 top-1/2 transform -translate-y-1/2"
-              >
-                {passwordVisible ? <Eye /> : <EyeOff />}
-              </button>
-            }
-          />
-          {errors.password && (
-            <p className="text-red-500 mt-2">{errors.password.message}</p>
-          )}
-        </div>
-
-        <div className="mb-6 relative">
-          <Input
-            placeholder="Confirm Password"
-            type={confirmPassVisible ? "text" : "password"}
-            id="confirmPassword"
-            className="w-[20rem] h-14 focus:outline-none border-none rounded-xl shadow-md bg-btnBgColor p-5"
-            {...register("confirmPassword", {
-              required: "Confirm Password is required",
-              validate: (value) =>
-                value === passwordWatch || "Passwords do not match!",
-            })}
-            icon={
-              <button
-                type="button"
-                onClick={() => setConfirmPassVisible(!confirmPassVisible)}
-                className="absolute left-64 top-2/4 transform -translate-y-1/2"
-              >
-                {confirmPassVisible ? <Eye /> : <EyeOff />}
-              </button>
-            }
-          />
-          {errors.confirmPassword && (
-            <p className="text-red-500 mt-2">{errors.confirmPassword.message}</p>
-          )}
-        </div>
-        <div className="flex justify-center items-center">
-          <button
-            type="submit"
-            className="flex items-center justify-center w-full"
-          >
-            {isSubmitting ? <Loader /> : <AuthButtons text="SIGN UP" />}
-          </button>
         </div>
       </form>
     </>

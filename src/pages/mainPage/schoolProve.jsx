@@ -1,35 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SchoolSection = ({ profileData, setProfileData }) => {
-  const handleCertificateTypeChange = (e) => {
-    setProfileData({ ...profileData, certificateType: e.target.value });
+const SchoolSection = () => {
+  const [certificatePreview, setCertificatePreview] = useState(null);
+
+  const handleCertificateImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setCertificatePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
-
-  const handleCertificateNumberChange = (e) => {
-    setProfileData({ ...profileData, certificateNumber: e.target.value });
-  };
-
-  // const handleFileChange = (e) => {
-  //   const selectedFile = e.target.files[0];
-  //   if (selectedFile) {
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setProfileData({ ...profileData, certificateImage: reader.result });
-  //     };
-  //     reader.readAsDataURL(selectedFile);
-  //   }
-  // };
 
   return (
-    <div className="mt-10 p-4 border rounded-lg shadow-md bg-white">
+    <div className="mt-8 p-6  rounded-lg shadow-lg">
       <div className="mb-6">
-        <label htmlFor="certificateType" className="block text-lg font-medium mb-2">
+        <label htmlFor="certificateType" className="block text-sm font-medium text-gray-800 mb-2">
           Certificate Type
         </label>
         <select
           id="certificateType"
-          onChange={handleCertificateTypeChange}
-          className="block w-full p-3 border rounded-xl shadow-md bg-btnBgColor"
+          className="w-full h-14 p-4 border border-gray-300 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
           <option value="">Select Certificate Type</option>
           <option value="GES">GES Certificate Number</option>
@@ -39,42 +32,40 @@ const SchoolSection = ({ profileData, setProfileData }) => {
       </div>
 
       <div className="mb-6">
-        <label htmlFor="certificateNumber" className="block text-lg font-medium mb-2">
+        <label htmlFor="certificateNumber" className="block text-sm font-medium text-gray-800 mb-2">
           Certificate Number
         </label>
         <input
           id="certificateNumber"
           type="text"
           placeholder="Enter Certificate Number"
-          onChange={handleCertificateNumberChange}
-          className="block w-full p-3 border rounded-xl shadow-md bg-btnBgColor"
+          className="w-full h-14 p-4 border border-gray-300 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
 
       <div className="mb-6">
-        <label htmlFor="certificateImage" className="block text-lg font-medium mb-2">
+        <label htmlFor="certificateImage" className="block text-sm font-medium text-gray-800 mb-2">
           Upload Certificate Image
         </label>
         <input
           id="certificateImage"
           type="file"
           accept="image/*"
-          // onChange={handleFileChange}
-          className="block w-full p-3 border rounded-xl shadow-md bg-btnBgColor"
+          onChange={handleCertificateImageChange}
+          className="w-full h-14 p-4 border border-gray-300 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
 
+      {certificatePreview && (
         <div className="mt-6">
-          <label className="block text-lg font-medium mb-2">Certificate Preview</label>
+          <label className="block text-sm font-medium text-gray-800 mb-2">Certificate Preview</label>
           <img
-            // src={profileData.certificateImage}
-            src=''
-
+            src={certificatePreview}
             alt="Certificate Preview"
-            className="w-full h-auto border rounded-lg"
+            className="w-full h-auto border border-gray-300 rounded-lg shadow-md"
           />
         </div>
-      
+      )}
     </div>
   );
 };

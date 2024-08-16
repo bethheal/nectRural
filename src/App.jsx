@@ -10,10 +10,10 @@ import Home from "./pages/dashboard/home/home";
 import MainPage from "./pages/mainPage/mainPage";
 import MainPageLayout from "./components/mainPage/mainPageLayout";
 import Profile from "./pages/mainPage/profile";
-import Post from "./pages/mainPage/post";
 import LandingPage from "./pages/landingPage";
 import LoginPage from "./pages/auth/loginPage";
 import Notifications from "./pages/mainPage/notification";
+import Post from "./pages/mainPage/post/post";
 
 const App = () => {
   const router = createBrowserRouter([
