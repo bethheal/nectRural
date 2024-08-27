@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import PostModal from './postModal';
-import POSTSECTION from './constant';
+import React, { useState } from "react";
+import PostModal from "./postModal";
+import { Schedule, Upload } from "@mui/icons-material";
+import { ImagesIcon } from "lucide-react";
 
 const Post = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,12 +26,11 @@ const Post = () => {
       {isModalOpen && (
         <PostModal
           handleClose={handleCloseModal}
-          draftsButton={POSTSECTION[0].draftsButton}
-          postButton={POSTSECTION[0].postButton}
-          closeButton={POSTSECTION[0].closeButton}
-          avatar={POSTSECTION[0].avatar}
-          uploadIcon={POSTSECTION[0].uploadIcon}
-          scheduleIcon={POSTSECTION[0].scheduleIcon}
+          draftsButton="Save Drafts"
+          postButton="Post"
+          avatar="/path/to/avatar.jpg"
+          uploadIcon={ImagesIcon} // Pass the icon components directly
+          scheduleIcon={Schedule}
         />
       )}
     </div>

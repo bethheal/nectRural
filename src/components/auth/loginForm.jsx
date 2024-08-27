@@ -1,7 +1,6 @@
 import { Input } from "@material-tailwind/react";
 import { Eye, EyeOff } from "lucide-react";
 import React, { useState } from "react";
-import AuthButtons from "../buttons";
 import { toast } from "react-toastify";
 import Loader from "./loader";
 import { useForm } from "react-hook-form";
@@ -29,24 +28,27 @@ const LoginForm = () => {
   };
 
   const onSubmit = async (data) => {
+    console.log(data)
     setIsSubmitting(true);
 
     try {
       const res = await apiLogIn({
-        userName: data.username, // Change 'userName' to 'username' to match the form field
+        userName: data.username, 
         password: data.password,
       });
+      console.log(res.data);
 
-      if (res.data && res.data.user) {
-        addToLocalStorage(res.data.accessToken, res.data.user);
-        toast.success(res.data.message);
-        navigate("/signup-option");
-      } else {
-        toast.error("Login failed. User information is missing.");
-      }
+      addToLocalStorage(res.data.accessToken, res.data.user);
+
+      toast.success(res.data.message);
+      toast.success("Login successful!");
+
+      setTimeout(() => {
+        navigate("/mainPage");
+      }, 500);
     } catch (error) {
-      console.error("Error during login:", error);
-      toast.error("An error occurred. Please try again.");
+      console.log(error);
+      toast.error("An error occured!");
     } finally {
       setIsSubmitting(false);
     }
