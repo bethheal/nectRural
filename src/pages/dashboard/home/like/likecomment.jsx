@@ -33,7 +33,7 @@ const LikeComment = ({ post }) => {
       {showComment && (
         <Modal 
           schoolName={post.nameOfSchool}
-          profileImg={post.profileImg}
+          profileImg={post.image}
           description={post.description}
           handleClose={handleCloseComment} 
         />

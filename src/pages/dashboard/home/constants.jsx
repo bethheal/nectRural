@@ -9,6 +9,7 @@ export const x = {
       profileImg: <Avatar />,
       nameOfSchool: "Hamelton Junior High",
       location: "Nkutem, Peduase ",
+      title: "Title",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem velit, scelerisque in elit porta, aliquam elementum odio.  ",
       postImg: (
